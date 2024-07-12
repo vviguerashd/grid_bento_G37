@@ -1,12 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: monospace;
+}
+
 .container{
     display: grid;
-    grid-template-columns: 150px 150px 150px 150px;
-    grid-template-rows: 150px 150px 150px 150px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr 1fr 1fr ;
     column-gap: 10px;
     row-gap: 10px; 
-    background-color: rgb(113, 129, 129);
+    background-color: rgb(19, 239, 239);
     width:fit-content;
     padding: 10px;
+    border-radius: 10px;
 }
 
 html{
@@ -17,60 +28,529 @@ h1{
 }
 .item{
     border-radius: 5px;
-    background-color: rgb(124, 160, 147);
 }
 
 #item1{
-    background-color: aqua;
+    background-color: #3D46F2;
     grid-row: 1/3;
     grid-column: 1/2;
-    background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
-    background-size:cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 #item2{
-    background-image: url(./m2-02\ de\ tamaño\ pequeño.jpeg);
-    background-size:cover;
-
+    background-color: #636AF2;
+    display: grid;
+    place-items: center;
 }
 #item3{
-    background-image: url(./m1-02\ de\ tamaño\ pequeño.jpeg);
+    background-color: #8D92F2;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+#item3 .texto{
+    font-size: 12px;
+    display: block;
+    text-align: center;
+    margin: 22px;
 }
 #item4{
-    background-color: rgb(8, 0, 255);
+    background-color:   #D5D7F2;
     grid-row: 1/3;
     grid-column: 4/5;
-    background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
-    background-size:cover;
-    background-position: right;
-
+    overflow: hidden;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-around;   
+}
+#item4 img{
+    width: 70%;
+    transform: rotate(180deg);
+}
+#item4 p{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 #item5{
-    background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
+    background-color: #D5D7F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
 }
+
+#item5 img{
+    max-width: 80%;
+    max-height: 100%;
+    /* width: 100%;
+    height: 100%;
+    object-fit: contain; */
+}
+
+#item5 p{
+    max-width: 80%;
+    text-align: center;
+    text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 #item6{
-    background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
-    grid-column: 3/4 ;
+    background-color: #636AF2;    grid-column: 3/4 ;
     grid-row:4/5;
+    position: relative;
 }
+
+#item6 img{
+    position: absolute;
+    width: 100%;
+}
+
+#item6 p{
+    position: absolute;
+    bottom: 10px; /* Ajusta según sea necesario */
+    left: 10px; /* Ajusta según sea necesario */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente para mejorar la legibilidad */
+    padding: 5px;
+    border-radius: 4px 1px 1px 4px;
+}
+
 #item7{
-    background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
-    grid-column: 4/5 ;
+    background-color: #8D92F2;    grid-column: 4/5 ;
     grid-row:3/5;
-    background-size:cover;
+    overflow: hidden;
+    position: relative;
 }
+#item7 img{
+    position: absolute;
+    right: -2px;
+    bottom: -2px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#item7 p{
+    position: absolute;
+    top: 20px;
+    padding: 10px;
+    text-align: center;
+    color: whitesmoke;
+}
+
 #item8{
     grid-column: 2/4 ;
     grid-row:2/4;
+    padding: 3px;
     background-color: rgb(59, 62, 82);
-    background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
-    background-size:cover;
-    background-position: center;
+    background-color: #636AF2;
+    text-align: center;    
 }
+.tetris-text {
+    font-size: 1.4em; /* Ajusta según sea necesario */
+    font-weight: bold; /* Ajusta según sea necesario */
+    background: linear-gradient(90deg, #ff00ff, #ff0099, #00ff00, #00cc00, #00ffff, #00ccff, #ff9900, #ff6600, #ffff00, #ffcc00, #ff0000, #cc0000, #ff00ff, #cc00ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
+    
+}
+.tetris-block{
+    display: grid;
+    grid-template-columns: repeat(9, 1fr); /* 4 columnas de 25px de ancho cada una */
+    grid-template-rows: repeat(10, 1fr); /* 4 filas de 25px de alto cada una */
+    gap: 2x; /* Espacio entre los bloques */
+    border: 2px solid #000; /* Bordes del contenedor */
+    background-color: #000000; /* Color de fondo del contenedor */
+}
+.tetris-block div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #4e4e4e;
+    font-size: 20px; /* Tamaño del emoji */
+    width: 100%; /* Asegura que el bloque ocupe todo el espacio de la celda */
+    height: 100%; /* Asegura que el bloque ocupe todo el espacio de la celda */
+  }
+
+
 
 #item9{
-    background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
     grid-column: 1/3 ;
     grid-row:4/5;
+    background-color: #F2AE30;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    position: relative;
+    overflow: hidden;
+}
+
+#item1 img{
+    position: relative;
+    left: -15%;
+    height: 140px;
+}
+h3{
+    padding-left: 0px;
+    top: 70px;
+    margin: 10px auto;
+}
+
+.circle{
+    background-color: #3D46F2;
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.circle img{
+    object-fit: cover; /* O 'contain' según lo que prefieras */
+    width: 50%;
+    height: 50%;
+}
+.circle .disco{
+    background-color:#ea8df28a;
+    border-radius: 35px;
+    padding: 0px 5px;
+}
+
+#item9 img{
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+#item9 div{
+    align-self: center;
+    padding-left: 20px;
+    z-index: 1;
+    
+}
+
+#item9 span{
+    position: absolute;
+    color: #cc942d9d;
+    font-size: 160px;
+    top: -11px;
+    font-weight: 900;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#div1 .tetris-piece1 {
+    background-color: #be0c0c; 
+    background: radial-gradient(circle, #ff9a9e, #fad0c4);
+}
+
+#div1 {
+    /* Posicionamiento de grid */
+    grid-row:7/8 ;
+    background: radial-gradient(circle, #ff9900, #ff6600);
+}
+
+#div2 {
+    /* Posicionamiento de grid */
+    grid-row: 6/7;
+    background: radial-gradient(circle, #ff9900, #ff6600);
+}
+
+#div3 {
+/* Posicionamiento de grid */
+grid-row: 6/7;
+background: radial-gradient(circle, #ff9900, #ff6600);
+}
+
+#div4 {
+/* Posicionamiento de grid */
+grid-row: 6/7;
+background: radial-gradient(circle, #ff9900, #ff6600);
+}
+
+#div5 {
+/* Posicionamiento de grid */
+grid-row: 7/8;
+background: radial-gradient(circle, #00ffff, #00ccff);
+}
+
+#div6 {
+/* Posicionamiento de grid */
+grid-row: 7/8;
+background: radial-gradient(circle, #00ffff, #00ccff);
+}
+
+#div7 {
+/* Posicionamiento de grid */
+grid-row: 6/7;
+background: radial-gradient(circle, #00ffff, #00ccff);
+}
+
+#div8 {
+/* Posicionamiento de grid */
+grid-column: 4/5;
+grid-row: 5/6;
+background: radial-gradient(circle, #00ffff, #00ccff);
+}
+
+#div9 {
+/* Posicionamiento de grid */
+grid-column: 9/10;
+grid-row: 8/9;
+background: radial-gradient(circle, #00ff00, #00cc00);
+}
+
+#div10 {
+/* Posicionamiento de grid */
+grid-column: 9/10;
+grid-row: 7/8;
+background: radial-gradient(circle, #00ff00, #00cc00);
+}
+
+#div11 {
+/* Posicionamiento de grid */
+grid-column: 9/10;
+grid-row: 6/7;
+background: radial-gradient(circle, #00ff00, #00cc00);
+}
+
+#div12 {
+/* Posicionamiento de grid */
+grid-column: 9/10;
+grid-row: 5/6;
+background: radial-gradient(circle, #00ff00, #00cc00);
+}
+
+#div13 {
+/* Posicionamiento de grid */
+grid-column: 6/7;
+grid-row: 5/6;
+background: radial-gradient(circle, #ffff00, #ffcc00);
+}
+
+#div14 {
+/* Posicionamiento de grid */
+grid-column: 6/7;
+grid-row: 4/5;
+background: radial-gradient(circle, #ffff00, #ffcc00);
+}
+
+#div15 {
+/* Posicionamiento de grid */
+grid-column: 7/8;
+grid-row: 4/5;
+background: radial-gradient(circle, #ffff00, #ffcc00);
+}
+
+#div16 {
+/* Posicionamiento de grid */
+grid-column: 7/8;
+grid-row: 3/4;
+background: radial-gradient(circle, #ffff00, #ffcc00);
+}
+
+#div17 {
+/* Posicionamiento de grid */
+grid-column: 2/3;
+grid-row: 7/8;
+background: radial-gradient(circle, #ffff00, #ffcc00);
+}
+
+#div18 {
+/* Posicionamiento de grid */
+grid-row: 8/9;
+background: radial-gradient(circle, #ffff00, #ffcc00);
+}
+
+#div19 {
+/* Posicionamiento de grid */
+grid-row: 8/9;
+background: radial-gradient(circle, #ffff00, #ffcc00);
+}
+
+#div20 {
+/* Posicionamiento de grid */
+grid-row: 9/10;
+background: radial-gradient(circle, #ffff00, #ffcc00);
+}
+
+#div21 {
+/* Posicionamiento de grid */
+grid-column: 3/4;
+grid-row: 7/8;
+background: radial-gradient(circle, #fd6060, #cc0000);
+}
+
+#div22 {
+/* Posicionamiento de grid */
+grid-column: 4/5;
+grid-row:8/9 ;
+background: radial-gradient(circle, #fd6060, #cc0000);
+}
+
+#div23 {
+/* Posicionamiento de grid */
+grid-column:3/4 ;
+grid-row:8/9 ;
+background: radial-gradient(circle, #fd6060, #cc0000);
+}
+
+#div24 {
+/* Posicionamiento de grid */
+grid-column:3/4 ;
+grid-row:9/10 ;
+background: radial-gradient(circle, #fd6060, #cc0000);
+}
+
+#div25 {
+/* Posicionamiento de grid */
+grid-column: 6/7;
+grid-row:8/9 ;
+background: radial-gradient(circle, #ffff00, #ffcc00);
+}
+
+#div26 {
+/* Posicionamiento de grid */
+grid-column:5/6 ;
+grid-row:8/9 ;
+background: radial-gradient(circle, #ffff00, #ffcc00);
+}
+
+#div27 {
+/* Posicionamiento de grid */
+grid-column:4/5 ;
+grid-row: 9/10;
+background: radial-gradient(circle, #ffff00, #ffcc00);
+}
+
+#div28 {
+/* Posicionamiento de grid */
+grid-column: 5/6;
+grid-row:9/10 ;
+background: radial-gradient(circle, #ffff00, #ffcc00);
+}
+
+#div29 {
+/* Posicionamiento de grid */
+grid-column:2/3 ;
+grid-row: 9/10;
+background: radial-gradient(circle, #ff9900, #ff6600);
+}
+
+#div30 {
+/* Posicionamiento de grid */
+grid-row:10/11 ;
+background: radial-gradient(circle, #ff9900, #ff6600);
+
+}
+
+#div31 {
+/* Posicionamiento de grid */
+grid-row: 10/11;
+background: radial-gradient(circle, #ff9900, #ff6600);
+
+}
+
+#div32 {
+/* Posicionamiento de grid */
+grid-row: 10/11;
+background: radial-gradient(circle, #ff9900, #ff6600);
+
+}
+
+#div33 {
+/* Posicionamiento de grid */
+grid-column:6/7 ;
+grid-row:9/10 ;
+background: radial-gradient(circle, #00ffff, #00ccff);
+
+}
+
+#div34 {
+/* Posicionamiento de grid */
+grid-row:10/11 ;
+background: radial-gradient(circle, #00ffff, #00ccff);
+
+}
+
+#div35 {
+/* Posicionamiento de grid */
+grid-row:10/11 ;
+background: radial-gradient(circle, #00ffff, #00ccff);
+
+}
+
+#div36 {
+/* Posicionamiento de grid */
+grid-row:10/11 ;
+background: radial-gradient(circle, #00ffff, #00ccff);
+
+}
+
+#div37 {
+/* Posicionamiento de grid */
+grid-column: 7/8;
+grid-row:  7/8;
+background: radial-gradient(circle, #00ff00, #00cc00);
+
+}
+
+#div38 {
+/* Posicionamiento de grid */
+grid-column: 7/8;
+grid-row: 8/9;
+background: radial-gradient(circle, #00ff00, #00cc00);
+
+}
+
+#div39 {
+/* Posicionamiento de grid */
+grid-column: 7/8;
+grid-row: 9/10;
+background: radial-gradient(circle, #00ff00, #00cc00);
+
+}
+
+#div40 {
+/* Posicionamiento de grid */
+grid-column: 7/8;
+grid-row: 10/11;
+background: radial-gradient(circle, #00ff00, #00cc00);
+
+}
+
+#div41 {
+/* Posicionamiento de grid */
+grid-column:8/9  ;
+grid-row:9/10 ;
+background: radial-gradient(circle, #f78df7, #ff0099);
+
+}
+
+#div42 {
+    /* Posicionamiento de grid */
+    grid-column:9/10 ;
+    grid-row:9/10 ;
+    background: radial-gradient(circle, #f78df7, #ff0099);
+
+}
+
+#div43 {
+    /* Posicionamiento de grid */
+    grid-column:8/9 ;
+    grid-row:10/11 ;
+    background: radial-gradient(circle, #f78df7, #ff0099);
+
+}
+
+#div44 {
+    /* Posicionamiento de grid */
+    grid-column:9/10 ;
+    grid-row: 10/11;
+    background: radial-gradient(circle, #f78df7, #ff0099);
+
 }
 
