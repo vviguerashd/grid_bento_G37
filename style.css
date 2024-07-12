@@ -1,0 +1,43 @@
+.container{
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px;
+    grid-template-rows: 150px 150px 150px 150px;
+    column-gap: 10px;
+    row-gap: 10px; 
+}
+
+main div{
+    color:rgb(8, 0, 255);
+}
+
+.item{
+    border-radius: 5px;
+    background-color: rgb(124, 160, 147);
+}
+
+#item1{
+    background-color: aqua;
+    grid-row: 1/3;
+    grid-column: 1/2;
+    background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
+    background-size:cover;
+}
+
+#item4{
+    background-color: rgb(8, 0, 255);
+    grid-row: 1/3;
+    grid-column: 4/5;
+    background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
+    background-size:cover;
+
+}
+
+#item8{
+    grid-column: 2/4 ;
+    grid-row:3/5 ;
+    background-color: chartreuse;
+    background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
+    background-size:cover;
+
+}
+
