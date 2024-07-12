@@ -4,10 +4,13 @@
     grid-template-rows: 150px 150px 150px 150px;
     column-gap: 10px;
     row-gap: 10px; 
+    background-color: rgb(113, 129, 129);
+    width:fit-content;
+    padding: 10px;
 }
 
-main div{
-    color:rgb(8, 0, 255);
+html{
+    background-color: black;
 }
 
 .item{
@@ -22,22 +25,50 @@ main div{
     background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
     background-size:cover;
 }
+#item2{
+    background-image: url(./m2-02\ de\ tamaño\ pequeño.jpeg);
+    background-size:cover;
 
+}
+#item3{
+    background-image: url(./m1-02\ de\ tamaño\ pequeño.jpeg);
+}
 #item4{
     background-color: rgb(8, 0, 255);
     grid-row: 1/3;
     grid-column: 4/5;
     background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
     background-size:cover;
+    background-position: right;
 
 }
 
+#item5{
+    background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
+}
+#item6{
+    background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
+    grid-column: 3/4 ;
+    grid-row:4/5;
+}
+#item7{
+    background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
+    grid-column: 4/5 ;
+    grid-row:3/5;
+    background-size:cover;
+}
 #item8{
     grid-column: 2/4 ;
-    grid-row:3/5 ;
-    background-color: chartreuse;
+    grid-row:2/4;
+    background-color: rgb(59, 62, 82);
     background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
     background-size:cover;
+    background-position: center;
+}
 
+#item9{
+    background-image: url(./MC-jul-12-02\ de\ tamaño\ pequeño.jpeg);
+    grid-column: 1/3 ;
+    grid-row:4/5;
 }
 
