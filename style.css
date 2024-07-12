@@ -12,7 +12,9 @@
 html{
     background-color: black;
 }
-
+h1{
+    color: aliceblue;
+}
 .item{
     border-radius: 5px;
     background-color: rgb(124, 160, 147);
